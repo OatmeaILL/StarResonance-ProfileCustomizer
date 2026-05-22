@@ -1,6 +1,6 @@
-# StarResonance-CardEditor
+# StarResonance-ProfileCustomizer
 
-![看板娘](./xmp.png)
+<img src="./xmp.png" width="50%">
 
 星痕共鸣（Star Resonance）名片/头像自定义修改工具
 
