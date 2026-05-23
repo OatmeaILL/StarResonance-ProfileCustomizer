@@ -73,6 +73,6 @@ A. 理论上是没问题，可以试试，有问题就找我反馈。
 
 ## 作者
 
-- 麦片
+- 麦片 and GLM5.1
 - GitHub: [OatmeaILL](https://github.com/OatmeaILL)
 - 8级活跃协会【瑝珑】，编号40384
