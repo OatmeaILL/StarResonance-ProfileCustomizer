@@ -18,7 +18,7 @@
 ## 使用方法
 
 1. 下载 [Releases](../../releases) 中的最新版本
-2. 双击运行 `StarResonance-ProfileCustomizer.exe `&#x20;
+2. 双击运行 `StarResonance-ProfileCustomizer.exe ` &#x20;
 3. 首次启动需同意用户协议，随后自动弹出教程
 4. 按照教程操作即可
 
@@ -58,6 +58,13 @@ A. 可以。程序已支持台服(StarTW\.exe)、港澳服(StarHK.exe)、日服(
 </details>
 
 ## 更新内容
+
+### 1.0.3
+
+- 修复导入部分图片时程序闪退的问题
+- 修复可能闪退的兼容性问题
+- 新增 debug 日志系统：在 config.json 中设置 `"debug": true` 即可启用，日志输出到 `logs/` 目录
+- 优化图片加载，防止闪退等异常情况发生
 
 ### 1.0.2
 
