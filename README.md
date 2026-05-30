@@ -18,7 +18,7 @@
 ## 使用方法
 
 1. 下载 [Releases](../../releases) 中的最新版本
-2. 双击运行 `StarResonance-ProfileCustomizer.exe ` &#x20;
+2. 双击运行 `StarResonance-ProfileCustomizer.exe `  &#x20;
 3. 首次启动需同意用户协议，随后自动弹出教程
 4. 按照教程操作即可
 
@@ -56,6 +56,26 @@ A. 未在向上拖动完橙色取相框后的下一步再次上下拖动一下�
 A. 可以。程序已支持台服(StarTW\.exe)、港澳服(StarHK.exe)、日服(StarJP.exe/BPSRJP.exe)、国际服(BPSR.exe)等进程名的自动检测。如果仍未检测到游戏，可点击「手动捕获游戏窗口」按钮手动选择游戏窗口；若仍无效，请尝试以管理员权限运行本程序。
 
 </details>
+
+## Debug 模式
+
+如需排查问题，可开启 debug 日志：
+
+1. 打开程序同目录下的 `config.json`
+2. 添加或修改 `"debug": true`
+3. 重新启动程序，日志文件将自动生成在 `logs/` 目录下
+
+```json
+{
+  "debug": true
+}
+```
+
+排查完毕后建议将 `"debug"` 改回 `false` 或删除该字段。
+
+## 提交 Issue
+
+遇到问题时，请开启 Debug 模式复现，然后在 [Issues](../../issues) 页面提交，并附上 `logs/` 目录下时间日期最近的日志文件，以便快速定位问题。
 
 ## 更新内容
 
