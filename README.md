@@ -39,7 +39,7 @@ Profile & Avatar Customization Tool for Blue Protocol: Star Resonance (BPSR)
 ### 准备工作
 
 1. 从 [Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases) 下载最新版本的可执行文件（.exe）
-2. 双击运行 `麦麦子名片头像修改工具 1.0.4.exe`
+2. 双击运行 `麦麦子名片头像修改工具 1.0.6.exe`
 3. 首次启动需阅读并同意**用户协议**
 4. 同意后会弹出**使用教程**对话框，你可以随时点击主窗口的「教程」按钮再次查看
 
@@ -212,6 +212,25 @@ A. 1.0.4 版本已修复此问题（改为异步子线程执行 + 主线程轮�
 
 ## 更新日志
 
+### 1.0.6
+
+**客户端**
+- 新增「可选更新」机制：服务端发布版本时可勾选"是否可不升级此版本"，客户端首次提醒可点击"略过此次更新"，不再重复打扰
+- 新增「记住窗口位置和大小」：每次启动恢复上次窗口位置和尺寸（自动校验屏幕可用性，避免恢复到已断开的显示器）
+- 新增「退出确认开关」：设置窗口中可配置是否在退出时弹出确认对话框，立即生效
+- 新增滑块拖动时的数值气泡提示
+- 新增链接悬停手型光标和 URL 提示框
+- 新增资源编号检测：当名片/头像资源编号超过 12 时，分配后提示用户在游戏中向下滚动查找
+- 公告栏重构为像素级平滑滚动：先完整显示停顿，再匀速滚动，支持鼠标悬停暂停
+- 兼容性修复：`QFontMetrics.horizontalAdvance` 在旧版 PyQt5 上回退到 `width`
+- 兼容性修复：`primaryScreen()` 在无显示器场景下增加空指针保护
+- 修复退出确认开关重启后不生效的 bug（根因：QScreen 导入异常导致配置加载中断）
+
+**服务端**
+- 发布/编辑版本对话框新增「是否可不升级此版本」复选框
+- 版本检查接口响应新增 `optional` 字段
+- 服务端版本号升级至 1.0.5
+
 ### 1.0.5
 
 **客户端**
@@ -320,7 +339,7 @@ It replaces local game files to set your own images as in-game profile cards or 
 ### Preparation
 
 1. Download the latest executable (.exe) from [Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases)
-2. Double-click to run `麦麦子名片头像修改工具 1.0.4.exe`
+2. Double-click to run `麦麦子名片头像修改工具 1.0.6.exe`
 3. On first launch, read and accept the **User Agreement**
 4. A **Tutorial** dialog will appear automatically. You can also click the "Tutorial" button on the main window to view it again
 
@@ -491,6 +510,25 @@ To troubleshoot issues, enable debug logging:
 
 ## Changelog
 
+### 1.0.6
+
+**Client**
+- New "Optional Update" mechanism: server can mark a version as skippable when publishing; clients can click "Skip This Update" on first prompt to avoid repeated notifications
+- New "Remember window position and size": restores the previous window geometry on launch (with screen availability check to avoid restoring to a disconnected display)
+- New "Exit confirmation toggle": configurable in Settings, takes effect immediately
+- New slider value tooltip shown while dragging
+- New link hover cursor (pointing hand) and URL tooltip
+- New resource index detection: when card/avatar resource index exceeds 12, a hint is shown after assignment telling the user to scroll down in-game
+- Announcement bar rebuilt with pixel-level smooth scrolling: displays the full text first, pauses, then scrolls linearly; mouse hover pauses scrolling
+- Compatibility fix: `QFontMetrics.horizontalAdvance` now falls back to `width` on older PyQt5
+- Compatibility fix: `primaryScreen()` now has a null-pointer guard for headless/disconnected-display scenarios
+- Fixed exit-confirmation toggle not persisting across restarts (root cause: QScreen import error aborted config loading)
+
+**Server**
+- Added "Can skip this version" checkbox to the publish/edit version dialog
+- Added `optional` field to the version check API response
+- Server version bumped to 1.0.5
+
 ### 1.0.5
 
 **Client**
@@ -598,7 +636,7 @@ Use at your own risk. The author assumes no responsibility for any consequences.
 ### 準備
 
 1. [Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases) から最新バージョンの実行ファイル（.exe）をダウンロード
-2. ダブルクリックで `麦麦子名片头像修改工具 1.0.4.exe` を実行
+2. ダブルクリックで `麦麦子名片头像修改工具 1.0.6.exe` を実行
 3. 初回起動時に**利用規約**を読み、同意してください
 4. 同意後、**チュートリアル**ダイアログが自動表示されます。メインウィンドウの「チュートリアル」ボタンからも再表示可能
 
@@ -768,6 +806,25 @@ A. バージョン 1.0.4 でこの問題を修正しました（非同期サブ�
 ---
 
 ## 更新履歴
+
+### 1.0.6
+
+**クライアント**
+- 新機能「オプショナルアップデート」：サーバー側で公開時に「このバージョンのスキップを許可」を設定可能。クライアントは初回通知時に「今回の更新をスキップ」をクリックすると、以降同じバージョンの通知を停止
+- 新機能「ウィンドウ位置とサイズの記憶」：起動時に前回のウィンドウ位置とサイズを復元（切断されたディスプレイへの復元を防ぐため画面可用性を自動チェック）
+- 新機能「終了確認スイッチ」：設定ウィンドウで終了時の確認ダイアログ表示を切り替え可能、即時反映
+- 新機能：スライダー ドラッグ中の数値バルーンチップ
+- 新機能：リンクホバー時の指カーソルと URL ツールチップ
+- 新機能：リソース番号検出。名刺/アバターのリソース番号が 12 を超える場合、割り当て後にゲーム内で下にスクロールするようヒントを表示
+- お知らせバーをピクセルレベルのスムーズスクロールに再構築。全文表示後に一時停止し、その後線形スクロール。マウスホバーで一時停止
+- 互換性修正：`QFontMetrics.horizontalAdvance` が古い PyQt5 で `width` にフォールバック
+- 互換性修正：`primaryScreen()` にヘッドレス/ディスプレイ切断シナリオ用の null ポインタ保護を追加
+- バグ修正：終了確認スイッチが再起動後に反映されない問題（原因：QScreen のインポートエラーにより設定読み込みが中断）
+
+**サーバー**
+- 公開/編集ダイアログに「このバージョンのスキップを許可」チェックボックスを追加
+- バージョンチェック API レスポンスに `optional` フィールドを追加
+- サーバーバージョンを 1.0.5 に更新
 
 ### 1.0.5
 
