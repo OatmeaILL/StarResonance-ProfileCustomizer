@@ -27,10 +27,8 @@ Profile & Avatar Customization Tool for Blue Protocol: Star Resonance (BPSR)
 - **一键替换** — 异步执行，进度条实时显示，不卡界面
 - **交互式更换流程** — 自动调整游戏窗口分辨率，分步引导完成拍照
 - **备份还原** — 修改前自动备份原始文件，异常时自动还原，退出程序自动还原
-- **快速查找模式** — 优先尝试上次使用的数据包路径，命中则跳过全量扫描
 - **多服务器兼容** — 支持国服、台服、港澳服、日服、国际服
 - **手动窗口捕获** — 自动检测失败时可手动点击游戏窗口捕获
-- **更新检测与公告** — 启动时自动检查更新，顶部公告栏轮播展示
 
 ---
 
@@ -39,7 +37,7 @@ Profile & Avatar Customization Tool for Blue Protocol: Star Resonance (BPSR)
 ### 准备工作
 
 1. 从 [Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases) 下载最新版本的可执行文件（.exe）
-2. 双击运行 `麦麦子名片头像修改工具 1.0.6.exe`
+2. 双击运行 `麦麦子名片头像修改工具 1.0.7.exe`
 3. 首次启动需阅读并同意**用户协议**
 4. 同意后会弹出**使用教程**对话框，你可以随时点击主窗口的「教程」按钮再次查看
 
@@ -137,23 +135,6 @@ Profile & Avatar Customization Tool for Blue Protocol: Star Resonance (BPSR)
 
 ---
 
-## 图片编辑器详细说明
-
-| 功能 | 操作方法 |
-|------|---------|
-| 调整裁剪范围 | 拖动蓝色选框的四个角或边 |
-| 平移图片 | 拖动选框外部区域 |
-| 缩放 | 滑块或鼠标滚轮（1%~300%） |
-| 亮度调节 | 滑块拖动，`[-]`/`[+]` 微调（步长1），`[R]` 重置 |
-| 对比度调节 | 同上 |
-| 饱和度调节 | 同上 |
-| 色温调节 | 同上 |
-| 复位图片 | 重置位置和缩放到初始状态 |
-| 重置图片 | 恢复所有调节参数到默认值 |
-| 大图预览 | 点击预览框弹出大图窗口，实时更新 |
-
----
-
 ## 常见问题
 
 <details>
@@ -212,86 +193,21 @@ A. 1.0.4 版本已修复此问题（改为异步子线程执行 + 主线程轮�
 
 ## 更新日志
 
-### 1.0.6
+### 1.0.7
 
 **客户端**
-- 新增「可选更新」机制：服务端发布版本时可勾选"是否可不升级此版本"，客户端首次提醒可点击"略过此次更新"，不再重复打扰
-- 新增「记住窗口位置和大小」：每次启动恢复上次窗口位置和尺寸（自动校验屏幕可用性，避免恢复到已断开的显示器）
-- 新增「退出确认开关」：设置窗口中可配置是否在退出时弹出确认对话框，立即生效
-- 新增滑块拖动时的数值气泡提示
-- 新增链接悬停手型光标和 URL 提示框
-- 新增资源编号检测：当名片/头像资源编号超过 12 时，分配后提示用户在游戏中向下滚动查找
-- 公告栏重构为像素级平滑滚动：先完整显示停顿，再匀速滚动，支持鼠标悬停暂停
-- 兼容性修复：`QFontMetrics.horizontalAdvance` 在旧版 PyQt5 上回退到 `width`
-- 兼容性修复：`primaryScreen()` 在无显示器场景下增加空指针保护
-- 修复退出确认开关重启后不生效的 bug（根因：QScreen 导入异常导致配置加载中断）
+- 预览框与大图预览窗口新增蓝色虚线边框：深色/偏色图片也能看清裁剪边界（仅显示用，不会写入导出的图片）
+- 新增预览彩蛋：未载入图片时点击预览框，弹出彩蛋图片与三语提示
+- 最大化窗口布局优化：裁剪区、表格等工作区自适应放大，控制面板与按钮限宽不再拉伸变形，预览框随窗口适度变大
+- 导入图片后预览框立即刷新，无需先拖动图片
+- 新增非管理员权限启动提示
+- 修复：程序目录只读时首次启动可能闪退的问题
+- 修复：应用修改过程中关闭程序可能导致游戏文件损坏的问题（处理期间禁止退出）
+- 修复：最大化状态下关闭程序后，下次启动窗口尺寸异常的问题
+- 修复：异常退出残留的旧备份可能在游戏更新后覆盖新游戏文件的问题（备份新鲜度校验）
+- 新增 WebP / GIF 图片格式导入支持
 
-**服务端**
-- 发布/编辑版本对话框新增「是否可不升级此版本」复选框
-- 版本检查接口响应新增 `optional` 字段
-- 服务端版本号升级至 1.0.5
-
-### 1.0.5
-
-**客户端**
-- 新增多语言支持（中文 / English / 日本語）
-- 首次启动弹出语言选择对话框，支持运行时切换语言
-- 新增「设置」窗口，可切换界面语言和调试模式
-- 顶栏「关于」按钮移至设置窗口内
-- 服务端支持按语言统计用户数据
-- 修复英文版和日文版程序标题显示不正确的问题
-- 修复英文和日文 FAQ 中 WeGame 平台引用的问题，改为 Steam / 游戏启动器
-- 修复教程中英文和日文的路径示例，改为通用 Steam 路径
-- README 和教程文本三语统一，国际化完整适配
-
-### 1.0.4
-
-**客户端**
-- 修复修改名片后，游戏中名片最下方有几个像素宽度的异常像素区域的问题
-- 异步应用修改，界面不再卡顿
-- 异常自动还原：应用修改失败时自动从备份恢复已修改的游戏文件
-- 预查找机制：快速查找模式优先尝试上次使用的数据包路径，命中则跳过全量扫描
-- 图片编辑器新增 `[R]` 按钮（每项调节旁增加重置按钮）
-- 修复首次启动未弹出教程对话框的问题
-- 降低崩溃风险
-- 窗口调整成功判断修正
-- 客户端体积优化（约减少 10MB）
-- 客户端重构，提升效率
-
-### 1.0.3
-
-- 修复导入部分图片时程序闪退的问题
-- 修复可能闪退的兼容性问题
-- 新增 debug 日志系统
-- 优化图片加载，防止闪退
-
-### 1.0.2
-
-- 新增「手动捕获游戏窗口」功能
-- 扩展游戏进程自动检测（支持台服、国际服等）
-- 窗口标题多语言匹配
-- 教程更新
-
-### 1.0.1
-
-- 图片编辑器交互优化（缩放保持选框相对位置）
-- 新增图片平移功能
-- 新增「复位图片」和「重置图片」按钮
-- 新增饱和度、色温调节
-- 新增 +/- 微调按钮（步长1）
-- 新增大图预览窗口（非模态，实时更新）
-- 修复选框包含图片外区域时预览异常拉伸的问题
-- 修复快速拖动图片时整数溢出闪退的问题
-- 编译优化，exe 体积减小
-
-### 1.0.0
-
-- 正式版发布
-- 更新检测与公告系统
-- 图片裁剪编辑器优化
-- 安全修复
-
----
+> 更早版本的更新记录见 [GitHub Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases)。
 
 ## 免责声明
 
@@ -327,10 +243,8 @@ It replaces local game files to set your own images as in-game profile cards or 
 - **One-click Replace** — Async execution with real-time progress bar, no UI freezing
 - **Interactive Workflow** — Automatically adjusts game window resolution, step-by-step photo-taking guidance
 - **Backup & Restore** — Automatically backs up original files before modification; auto-restore on errors or program exit
-- **Quick Search Mode** — Tries the previously used package path first for faster searching
 - **Multi-server Support** — Compatible with CN, TW, HK, JP, and international servers
 - **Manual Window Capture** — Manually select the game window if auto-detection fails
-- **Update Check & Announcements** — Auto-checks for updates on startup, announcement carousel bar
 
 ---
 
@@ -339,7 +253,7 @@ It replaces local game files to set your own images as in-game profile cards or 
 ### Preparation
 
 1. Download the latest executable (.exe) from [Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases)
-2. Double-click to run `麦麦子名片头像修改工具 1.0.6.exe`
+2. Double-click to run `麦麦子名片头像修改工具 1.0.7.exe`
 3. On first launch, read and accept the **User Agreement**
 4. A **Tutorial** dialog will appear automatically. You can also click the "Tutorial" button on the main window to view it again
 
@@ -437,23 +351,6 @@ It replaces local game files to set your own images as in-game profile cards or 
 
 ---
 
-## Image Editor Reference
-
-| Feature | How to Use |
-|---------|-----------|
-| Adjust crop area | Drag the corners or edges of the blue selection box |
-| Pan image | Drag the area outside the selection box |
-| Zoom | Slider or mouse wheel (1%~300%) |
-| Brightness | Slider drag, `[-]`/`[+]` fine adjustment (step 1), `[R]` reset |
-| Contrast | Same as above |
-| Saturation | Same as above |
-| Color Temperature | Same as above |
-| Reset Position | Reset position and zoom to initial state |
-| Reset Image | Restore all adjustment parameters to defaults |
-| Large Preview | Click the preview area to open a large preview window |
-
----
-
 ## FAQ
 
 <details>
@@ -510,85 +407,21 @@ To troubleshoot issues, enable debug logging:
 
 ## Changelog
 
-### 1.0.6
+### 1.0.7
 
 **Client**
-- New "Optional Update" mechanism: server can mark a version as skippable when publishing; clients can click "Skip This Update" on first prompt to avoid repeated notifications
-- New "Remember window position and size": restores the previous window geometry on launch (with screen availability check to avoid restoring to a disconnected display)
-- New "Exit confirmation toggle": configurable in Settings, takes effect immediately
-- New slider value tooltip shown while dragging
-- New link hover cursor (pointing hand) and URL tooltip
-- New resource index detection: when card/avatar resource index exceeds 12, a hint is shown after assignment telling the user to scroll down in-game
-- Announcement bar rebuilt with pixel-level smooth scrolling: displays the full text first, pauses, then scrolls linearly; mouse hover pauses scrolling
-- Compatibility fix: `QFontMetrics.horizontalAdvance` now falls back to `width` on older PyQt5
-- Compatibility fix: `primaryScreen()` now has a null-pointer guard for headless/disconnected-display scenarios
-- Fixed exit-confirmation toggle not persisting across restarts (root cause: QScreen import error aborted config loading)
+- Preview box and large preview window now draw a dashed blue border: dark or off-color images show their crop boundaries clearly (display only, never saved into exported images)
+- New easter egg: clicking the preview box without a loaded image shows an easter egg picture with a trilingual hint
+- Maximized window layout improvements: workspace areas (crop view, tables) expand while control panels and buttons stay width-capped; the preview box grows moderately with the window
+- Preview thumbnail now refreshes immediately after importing an image
+- New notice when the program is not running with administrator privileges
+- Fixed a possible crash on first launch when the program folder is read-only
+- Fixed possible game file corruption when closing the program while changes are being applied (exit is blocked during processing)
+- Fixed abnormal window size on next launch after closing the program while maximized
+- Fixed stale leftover backups possibly overwriting newer game files after a game update (backup freshness check)
+- Added WebP / GIF image import support
 
-**Server**
-- Added "Can skip this version" checkbox to the publish/edit version dialog
-- Added `optional` field to the version check API response
-- Server version bumped to 1.0.5
-
-### 1.0.5
-
-**Client**
-- Added multilingual support (Chinese / English / Japanese)
-- Language selection dialog on first launch, with runtime language switching
-- Added "Settings" window for language and debug mode switching
-- Moved "About" button from top bar to Settings window
-- Server now tracks user data by language
-- Fixed incorrect program title display for English and Japanese versions
-- Replaced WeGame references in FAQ/Tutorials with Steam / game launcher for international users
-- Unified tutorial and README text across all three languages
-
-### 1.0.4
-
-**Client**
-- Fixed abnormal pixel area at the bottom of profile cards in-game
-- Async modification application, no more UI freezing
-- Auto-restore on failure: automatically restores backed-up files when modification fails
-- Pre-search mechanism: quick search tries the last used package path first
-- Added `[R]` reset buttons for all adjustment parameters
-- Fixed tutorial dialog not showing on first launch
-- Reduced crash risk
-- Fixed window resize success detection
-- Client size optimization (~10MB reduction)
-- Client refactoring for improved efficiency
-
-### 1.0.3
-
-- Fixed crash when importing certain images
-- Fixed compatibility crash issues
-- Added debug logging system
-- Optimized image loading to prevent crashes
-
-### 1.0.2
-
-- Added "Manually Capture Game Window" feature
-- Extended game process auto-detection (supports TW, international servers, etc.)
-- Multi-language window title matching
-- Tutorial updates
-
-### 1.0.1
-
-- Image editor interaction optimization (zoom preserves selection box position)
-- Added image panning feature
-- Added "Reset Position" and "Reset Image" buttons
-- Added saturation and color temperature adjustment
-- Added +/- fine adjustment buttons (step 1)
-- Added large preview window (non-modal, real-time updates)
-- Fixed preview stretching when selection includes image outer area
-- Fixed integer overflow crash during fast image dragging
-- Build optimization, reduced exe size
-
-### 1.0.0
-
-- Official release
-- Update check and announcement system
-- Image editor optimization
-- Security fixes
-
----
+> For older release notes, see [GitHub Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases).
 
 ## Disclaimer
 
@@ -624,10 +457,8 @@ Use at your own risk. The author assumes no responsibility for any consequences.
 - **ワンクリック置換** — 非同期実行、リアルタイム進行状況バー表示、UI のフリーズなし
 - **対話型ワークフロー** — ゲームウィンドウの解像度を自動調整、段階的に写真撮影をガイド
 - **バックアップ＆復元** — 変更前に自動バックアップ、エラー時や終了時に自動復元
-- **クイック検索モード** — 前回使用したパッケージパスを優先的に試行
 - **マルチサーバー対応** — 中国サーバー、台湾、香港/澳門、日本、国際サーバーに対応
 - **手動ウィンドウキャプチャ** — 自動検出に失敗した場合、ゲームウィンドウを手動で選択
-- **アップデート確認＆お知らせ** — 起動時に自動アップデート確認、お知らせバー表示
 
 ---
 
@@ -636,7 +467,7 @@ Use at your own risk. The author assumes no responsibility for any consequences.
 ### 準備
 
 1. [Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases) から最新バージョンの実行ファイル（.exe）をダウンロード
-2. ダブルクリックで `麦麦子名片头像修改工具 1.0.6.exe` を実行
+2. ダブルクリックで `麦麦子名片头像修改工具 1.0.7.exe` を実行
 3. 初回起動時に**利用規約**を読み、同意してください
 4. 同意後、**チュートリアル**ダイアログが自動表示されます。メインウィンドウの「チュートリアル」ボタンからも再表示可能
 
@@ -734,23 +565,6 @@ Use at your own risk. The author assumes no responsibility for any consequences.
 
 ---
 
-## 画像エディターリファレンス
-
-| 機能 | 操作方法 |
-|------|---------|
-| 切り抜き範囲の調整 | 青色選択枠の四隅や辺をドラッグ |
-| 画像の移動 | 選択枠の外側をドラッグ |
-| ズーム | スライダーまたはマウスホイール（1%~300%） |
-| 明るさ調整 | スライダー、`[-]`/`[+]` 微調整（ステップ1）、`[R]` リセット |
-| コントラスト調整 | 同上 |
-| 彩度調整 | 同上 |
-| 色温度調整 | 同上 |
-| 位置リセット | 位置とズームを初期状態に戻す |
-| 画像リセット | 全調整パラメータをデフォルトに戻す |
-| 拡大プレビュー | プレビューエリアをクリックして拡大ウィンドウ表示 |
-
----
-
 ## よくある質問
 
 <details>
@@ -807,85 +621,21 @@ A. バージョン 1.0.4 でこの問題を修正しました（非同期サブ�
 
 ## 更新履歴
 
-### 1.0.6
+### 1.0.7
 
 **クライアント**
-- 新機能「オプショナルアップデート」：サーバー側で公開時に「このバージョンのスキップを許可」を設定可能。クライアントは初回通知時に「今回の更新をスキップ」をクリックすると、以降同じバージョンの通知を停止
-- 新機能「ウィンドウ位置とサイズの記憶」：起動時に前回のウィンドウ位置とサイズを復元（切断されたディスプレイへの復元を防ぐため画面可用性を自動チェック）
-- 新機能「終了確認スイッチ」：設定ウィンドウで終了時の確認ダイアログ表示を切り替え可能、即時反映
-- 新機能：スライダー ドラッグ中の数値バルーンチップ
-- 新機能：リンクホバー時の指カーソルと URL ツールチップ
-- 新機能：リソース番号検出。名刺/アバターのリソース番号が 12 を超える場合、割り当て後にゲーム内で下にスクロールするようヒントを表示
-- お知らせバーをピクセルレベルのスムーズスクロールに再構築。全文表示後に一時停止し、その後線形スクロール。マウスホバーで一時停止
-- 互換性修正：`QFontMetrics.horizontalAdvance` が古い PyQt5 で `width` にフォールバック
-- 互換性修正：`primaryScreen()` にヘッドレス/ディスプレイ切断シナリオ用の null ポインタ保護を追加
-- バグ修正：終了確認スイッチが再起動後に反映されない問題（原因：QScreen のインポートエラーにより設定読み込みが中断）
+- プレビュー枠と拡大プレビューウィンドウに青い破線ボーダーを追加：暗い色や被った色の画像でも切り抜き範囲を確認しやすくなりました（表示のみで、書き出し画像には含まれません）
+- イースターエッグを追加：画像未選択の状態でプレビュー枠をクリックすると、彩蛋画像と三言語のヒントを表示
+- 最大化レイアウトの改善：切り抜きビューなどの作業領域は拡大し、コントロールパネルやボタンは幅制限で引き伸ばされなくなりました。プレビュー枠もウィンドウに合わせて適度に拡大
+- 画像インポート後、プレビューが即座に更新されるように
+- 管理者権限で実行していない場合の注意表示を追加
+- 修正：プログラムフォルダが読み取り専用の場合、初回起動時にクラッシュする可能性がある問題
+- 修正：変更適用中にプログラムを終了するとゲームファイルが破損する可能性がある問題（適用中は終了をブロック）
+- 修正：最大化状態で終了した後、次回起動時のウィンドウサイズが異常になる問題
+- 修正：異常終了で残った古いバックアップが、ゲーム更新後に新しいゲームファイルを上書きする可能性がある問題（バックアップ新鮮度チェック）
+- WebP / GIF 画像形式のインポートに対応
 
-**サーバー**
-- 公開/編集ダイアログに「このバージョンのスキップを許可」チェックボックスを追加
-- バージョンチェック API レスポンスに `optional` フィールドを追加
-- サーバーバージョンを 1.0.5 に更新
-
-### 1.0.5
-
-**クライアント**
-- 多言語対応（中文 / English / 日本語）を追加
-- 初回起動時に言語選択ダイアログを表示、実行中の言語切り替えに対応
-- 「設定」ウィンドウを追加、言語とデバッグモードの切り替えが可能
-- トップバーの「について」ボタンを設定ウィンドウ内に移動
-- サーバーが言語別でユーザーデータを追跡
-- 英語版と日本語版のプログラムタイトルの表示問題を修正
-- 海外ユーザー向けに FAQ・チュートリアルの WeGame 参照を Steam/ゲームランチャーに変更
-- チュートリアルと README テキストの三語統一
-
-### 1.0.4
-
-**クライアント**
-- プロフィールカード下部の異常ピクセル領域を修正
-- 非同期適用で UI フリーズを解消
-- エラー時の自動復元機能を追加
-- プリサーチ機構：クイック検索で前回のパッケージパスを優先
-- 全調整パラメータに `[R]` リセットボタンを追加
-- 初回起動時のチュートリアル表示問題を修正
-- クラッシュリスクを低減
-- ウィンドウリサイズ成功判定を修正
-- クライアントサイズ最適化（約10MB削減）
-- クライアントリファクタリング
-
-### 1.0.3
-
-- 特定画像インポート時のクラッシュを修正
-- 互換性クラッシュ問題を修正
-- デバッグログシステムを追加
-- 画像読み込みを最適化
-
-### 1.0.2
-
-- 「ゲームウィンドウを手動キャプチャ」機能を追加
-- ゲームプロセス自動検出を拡張
-- ウィンドウタイトルの多言語対応
-- チュートリアル更新
-
-### 1.0.1
-
-- 画像エディター操作最適化
-- 画像移動機能を追加
-- 「位置リセット」「画像リセット」ボタンを追加
-- 彩度・色温度調整を追加
-- +/- 微調整ボタンを追加（ステップ1）
-- 拡大プレビューウィンドウを追加
-- プレビュー伸縮問題を修正
-- 整数オーバーフロークラッシュを修正
-- ビルド最適化
-
-### 1.0.0
-
-- 正式リリース
-- アップデート確認・お知らせシステム
-- 画像エディター最適化
-- セキュリティ修正
-
----
+> それ以前の更新履歴は [GitHub Releases](https://github.com/OatmeaILL/StarResonance-ProfileCustomizer/releases) をご覧ください。
 
 ## 免責事項
 
