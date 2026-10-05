@@ -788,14 +788,14 @@ _AVATAR_STEPS = {
 _EULA_TEMPLATES = {
     'zh': (
         "<h3>用户协议</h3><hr>"
-        "<p>本工具仅供交流与学习使用，原理为修改本地游戏文件，"
+        "<p>本工具完全免费且开源（GPL-3.0），原理为修改本地游戏文件，"
         "可能导致游戏损坏、数据异常，并存在封号风险。<br>"
         "请自行决定是否使用，作者不对任何后果负责。</p>"
         "<p style='color:red;'><b>程序版本为v{version} 可能存在漏洞，若发现漏洞可以拷打麦片。</b></p>"
     ),
     'en': (
         "<h3>User Agreement</h3><hr>"
-        "<p>This tool is for learning and communication purposes only. "
+        "<p>This tool is completely free and open source (GPL-3.0). "
         "It modifies local game files, which may cause game corruption, "
         "data anomalies, and account suspension risk.<br>"
         "Use at your own risk. The author assumes no responsibility.</p>"
@@ -803,7 +803,7 @@ _EULA_TEMPLATES = {
     ),
     'ja': (
         "<h3>利用規約</h3><hr>"
-        "<p>このツールは学習・交流目的のみです。ローカルゲームファイルを変更するため、"
+        "<p>このツールは完全無料のオープンソース（GPL-3.0）です。ローカルゲームファイルを変更するため、"
         "ゲームの破損、データ異常、アカウント停止のリスクがあります。<br>"
         "自己責任でご使用ください。作者は一切の責任を負いません。</p>"
         "<p style='color:red;'><b>バージョン v{version} にはバグがある可能性があります。問題があれば報告してください。</b></p>"
@@ -1034,7 +1034,7 @@ _ABOUT_HTML = {
 <hr>
 <p style="font-size: 11px; color: #999;">
 <b>免责声明</b><br>
-本工具仅供交流与学习使用，完全免费，禁止任何形式的倒卖，<br>
+本工具完全免费且开源（GPL-3.0），请勿购买任何付费副本，<br>
 原理为修改本地游戏文件，可能导致游戏损坏、数据异常，并存在封号风险。<br>
 请自行决定是否使用，作者不对任何后果负责。</p>
 """,
@@ -1051,8 +1051,8 @@ Join the community for support and latest versions!</b></p>
 <hr>
 <p style="font-size: 11px; color: #999;">
 <b>Disclaimer</b><br>
-This tool is for learning and communication purposes only. It is completely free.<br>
-Reselling is strictly prohibited. It modifies local game files, which may cause<br>
+This tool is completely free and open source (GPL-3.0). Please do not pay for it.<br>
+It modifies local game files, which may cause<br>
 game corruption, data anomalies, and account suspension risk.<br>
 Use at your own risk. The author assumes no responsibility.</p>
 """,
@@ -1069,7 +1069,7 @@ Use at your own risk. The author assumes no responsibility.</p>
 <hr>
 <p style="font-size: 11px; color: #999;">
 <b>免責事項</b><br>
-このツールは学習・交流目的のみです。完全無料で、転売は固く禁止します。<br>
+このツールは完全無料のオープンソース（GPL-3.0）です。有料の副本を購入しないでください。<br>
 ローカルゲームファイルを変更するため、ゲームの破損、データ異常、<br>
 アカウント停止のリスクがあります。<br>
 自己責任でご使用ください。作者は一切の責任を負いません。</p>
