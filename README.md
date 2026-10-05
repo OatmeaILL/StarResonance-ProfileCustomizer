@@ -16,7 +16,7 @@ Profile & Avatar Customization Tool for Blue Protocol: Star Resonance (BPSR)
 **麦麦子名片头像修改工具** 是一款用于修改《星痕共鸣》（Blue Protocol: Star Resonance / BPSR）游戏内名片和头像的 PC 桌面工具。  
 通过替换本地游戏文件的方式，将你喜欢的图片设置为游戏中的名片或头像。
 
-> ⚠ **本工具仅供交流与学习使用，完全免费，禁止倒卖。修改本地文件可能导致封号风险，请自行决定是否使用。**
+> ⚠ **本工具完全免费且开源（GPL-3.0），请勿购买任何付费副本。修改本地文件可能导致封号风险，请自行决定是否使用。**
 
 ---
 
@@ -191,6 +191,30 @@ A. 1.0.4 版本已修复此问题（改为异步子线程执行 + 主线程轮�
 
 ---
 
+## 从源码运行与构建
+
+源码位于仓库的 `srcmain/` 目录，**不含更新检查、公告、使用统计等任何联网功能**。
+
+**环境要求**：Python 3.8+、Windows（程序依赖 Win32 API 调整游戏窗口）
+
+```bash
+cd srcmain
+pip install -r requirements.txt   # 依赖：PyQt5 / UnityPy / Pillow / psutil
+python main.py                    # 启动
+```
+
+也可以直接双击 `srcmain/START CLIENT.CMD`，脚本会自动检查 Python 与依赖。
+
+**打包为 exe**：
+
+```bash
+cd srcmain
+pip install pyinstaller
+pyinstaller build_spec.spec       # 产物在 srcmain/dist/ 下
+```
+
+---
+
 ## 更新日志
 
 ### 1.0.7
@@ -211,9 +235,17 @@ A. 1.0.4 版本已修复此问题（改为异步子线程执行 + 主线程轮�
 
 ## 免责声明
 
-本工具仅供交流与学习使用，**完全免费**，禁止任何形式的倒卖。  
+本工具**完全免费且开源**（GPL-3.0，见 [LICENSE](LICENSE)），请勿购买任何付费副本。  
 原理为修改本地游戏文件，可能导致游戏损坏、数据异常，并存在**封号风险**。  
 请自行决定是否使用，作者不对任何后果负责。
+
+---
+
+## 许可证
+
+本项目以 **GNU General Public License v3.0（GPL-3.0）** 开源，完整条款见 [LICENSE](LICENSE)。
+
+你可以自由使用、修改和分发本程序；修改后的衍生作品必须以相同许可证开源，并保留原始版权声明。
 
 ---
 
@@ -232,7 +264,7 @@ A. 1.0.4 版本已修复此问题（改为异步子线程执行 + 主线程轮�
 **Maimai BPSR Profile & Avatar Customizer** is a PC desktop tool for modifying in-game profile cards (business cards) and avatars in **Blue Protocol: Star Resonance** (BPSR / 星痕共鸣).  
 It replaces local game files to set your own images as in-game profile cards or avatars.
 
-> ⚠ **This tool is for learning and communication purposes only. It is completely free. Reselling is strictly prohibited. Modifying local game files may result in account suspension. Use at your own risk.**
+> ⚠ **This tool is completely free and open source (GPL-3.0). Please do not pay for it. Modifying local game files may result in account suspension. Use at your own risk.**
 
 ---
 
@@ -405,6 +437,30 @@ To troubleshoot issues, enable debug logging:
 
 ---
 
+## Run & Build from Source
+
+The source code lives in `srcmain/` and contains **no update check, announcements, usage reporting or any other network feature**.
+
+**Requirements**: Python 3.8+, Windows (the program uses Win32 APIs to resize the game window)
+
+```bash
+cd srcmain
+pip install -r requirements.txt   # PyQt5 / UnityPy / Pillow / psutil
+python main.py                    # run
+```
+
+You can also just double-click `srcmain/START CLIENT.CMD`, which checks Python and dependencies automatically.
+
+**Build a standalone exe**:
+
+```bash
+cd srcmain
+pip install pyinstaller
+pyinstaller build_spec.spec       # output in srcmain/dist/
+```
+
+---
+
 ## Changelog
 
 ### 1.0.7
@@ -425,9 +481,17 @@ To troubleshoot issues, enable debug logging:
 
 ## Disclaimer
 
-This tool is for **learning and communication purposes only**. It is **completely free**. Reselling is strictly prohibited.  
+This tool is **completely free** and **open source under GPL-3.0** (see [LICENSE](LICENSE)). Please do not pay for it.  
 It works by modifying local game files, which may cause game corruption, data anomalies, and **account suspension risk**.  
 Use at your own risk. The author assumes no responsibility for any consequences.
+
+---
+
+## License
+
+This project is open source under the **GNU General Public License v3.0 (GPL-3.0)**. See [LICENSE](LICENSE) for the full text.
+
+You are free to use, modify and redistribute this program; derivative works must be released under the same license with the original copyright notice preserved.
 
 ---
 
@@ -446,7 +510,7 @@ Use at your own risk. The author assumes no responsibility for any consequences.
 **麦麦子 BPSR 名刺・アバター変更ツール** は、**星痕共鳴（Blue Protocol: Star Resonance / BPSR）** のゲーム内プロフィールカード（名刺）とアバターを変更するための PC デスクトップツールです。  
 ローカルのゲームファイルを置き換えることで、好きな画像をゲーム内のプロフィールカードやアバターとして設定できます。
 
-> ⚠ **このツールは学習・交流目的のみです。完全無料で、転売は固く禁止します。ローカルファイルの変更によりアカウント停止のリスクがあります。自己責任でご使用ください。**
+> ⚠ **このツールは完全無料のオープンソース（GPL-3.0）です。有料の副本を購入しないでください。ローカルファイルの変更によりアカウント停止のリスクがあります。自己責任でご使用ください。**
 
 ---
 
@@ -619,6 +683,30 @@ A. バージョン 1.0.4 でこの問題を修正しました（非同期サブ�
 
 ---
 
+## ソースからの実行とビルド
+
+ソースコードは `srcmain/` にあり、更新確認・お知らせ・利用統計など**ネットワーク機能は一切含まれていません**。
+
+**動作環境**：Python 3.8+、Windows（ゲームウィンドウのリサイズに Win32 API を使用）
+
+```bash
+cd srcmain
+pip install -r requirements.txt   # PyQt5 / UnityPy / Pillow / psutil
+python main.py                    # 起動
+```
+
+`srcmain/START CLIENT.CMD` をダブルクリックしても起動できます（Python と依存関係を自動チェック）。
+
+**単体 exe のビルド**：
+
+```bash
+cd srcmain
+pip install pyinstaller
+pyinstaller build_spec.spec       # 出力先は srcmain/dist/
+```
+
+---
+
 ## 更新履歴
 
 ### 1.0.7
@@ -639,9 +727,17 @@ A. バージョン 1.0.4 でこの問題を修正しました（非同期サブ�
 
 ## 免責事項
 
-このツールは**学習・交流目的のみ**です。**完全無料**で、転売は固く禁止します。  
+このツールは**完全無料**のオープンソース（**GPL-3.0**、[LICENSE](LICENSE) 参照）です。有料の副本を購入しないでください。  
 ローカルゲームファイルを変更する原理により、ゲームの破損、データ異常、**アカウント停止のリスク**があります。  
 **自己責任**でご使用ください。作者は一切の責任を負いません。
+
+---
+
+## ライセンス
+
+本プロジェクトは **GNU General Public License v3.0（GPL-3.0）** で公開されています。全文は [LICENSE](LICENSE) をご覧ください。
+
+自由に使用・改変・再配布できますが、改変した派生作品は同じライセンスで公開し、元の著作権表示を保持する必要があります。
 
 ---
 

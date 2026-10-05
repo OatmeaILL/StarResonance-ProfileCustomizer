@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# PyInstaller 构建产物
+build/
+dist/
+
+# 程序运行/调试产物（在源码目录运行 main.py 时生成）
+logs/
+cache/
+bak/
+config.json
+.eula_accepted
+
+# 发布包（请通过 GitHub Releases 分发，不要提交进仓库）
+*.exe
+*.zip
+
+# 编辑器
+.vscode/
+.idea/

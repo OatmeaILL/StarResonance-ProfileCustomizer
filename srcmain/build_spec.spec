@@ -212,7 +212,7 @@ a = Analysis(
 )
 
 # 过滤无用二进制文件（Qt 软件/ANGLE 渲染后端、QML 引擎、多余平台插件等）
-# 项目仅用 QWidget(CPU渲染) + urllib，不依赖 OpenGL/QML/QtNetwork
+# 项目仅用 QWidget(CPU渲染)，不依赖 OpenGL/QML/QtNetwork
 exclude_bin_names = {
     'opengl32sw.dll',       # Qt 软件 OpenGL 渲染 (19.95MB)
     'd3dcompiler_47.dll',   # D3D 编译器 ANGLE 后端 (3.98MB)
@@ -222,7 +222,7 @@ exclude_bin_names = {
     'Qt5Qml.dll',           # QML 引擎 (3.43MB)
     'Qt5QmlModels.dll',     # QML 模型
     'Qt5QmlWorkerScript.dll',
-    'Qt5Network.dll',       # Qt 网络 (1.28MB) - 用 urllib
+    'Qt5Network.dll',       # Qt 网络 (1.28MB)
     'Qt5Svg.dll',           # SVG 渲染
     'Qt5PrintSupport.dll',  # 打印支持
     'Qt5WebEngine.dll',
