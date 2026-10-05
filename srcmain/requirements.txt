@@ -1,0 +1,6 @@
+# 客户端运行依赖
+# 构建另需: pyinstaller (见 build_spec.spec)
+PyQt5>=5.15
+UnityPy==1.25.0
+Pillow>=10.0
+psutil>=5.9
